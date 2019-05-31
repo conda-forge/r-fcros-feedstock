@@ -1,4 +1,4 @@
-{% set version = "1.6" %}
+{% set version = "1.6.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/fcros_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/fcros/fcros_{{ version }}.tar.gz
-  sha256: 60d8dd6e2211ef12e3e0c939a8d85337d55dd11e500afa1413ef4bb0c784142c
+  sha256: 7da0a63543f00d3be080ef6ade8fc466a0612c46a7b6ddaafe8ca2a13135d913
 
 build:
   merge_build_host: True  # [win]
