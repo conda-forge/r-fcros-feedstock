@@ -1,4 +1,4 @@
-{% set version = "1.6" %}
+{% set version = '1.6.1' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,12 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/fcros_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/fcros/fcros_{{ version }}.tar.gz
-  sha256: 60d8dd6e2211ef12e3e0c939a8d85337d55dd11e500afa1413ef4bb0c784142c
+  sha256: 7da0a63543f00d3be080ef6ade8fc466a0612c46a7b6ddaafe8ca2a13135d913
 
 build:
   merge_build_host: True  # [win]
   number: 0
-  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
@@ -26,8 +25,6 @@ requirements:
     - {{native}}toolchain        # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
-    - {{posix}}sed  # [win]
-    - {{posix}}coreutils  # [win]
     - {{posix}}sed               # [win]
     - {{posix}}coreutils         # [win]
     - {{posix}}zip               # [win]
@@ -52,14 +49,23 @@ about:
     tests when using this method. For array-based comparative genomic hybridization
     data, segmentation results are obtained by merging the significant probes detected.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+    - conda-forge/r
     - bensellak
+
+# Package: fcros
+# Version: 1.6.1
+# Date: 2019-05-28
+# Title: A Method to Search for Differentially Expressed Genes and to Detect Recurrent Chromosomal Copy Number Aberrations
+# Author: Doulaye Dembele
+# Maintainer: Doulaye Dembele <doulaye@igbmc.fr>
+# Depends: R (>= 3.1.0)
+# Description: A fold change rank based method is presented to search for genes with changing expression and to detect recurrent chromosomal copy number aberrations. This  method may be useful for high-throughput biological data (micro-array, sequencing, ...). Probabilities are associated with genes or probes in the data set and there is no problem of multiple tests when using this method. For array-based comparative genomic hybridization data, segmentation results are obtained by merging the significant probes detected.
+# License: GPL (>= 2)
+# NeedsCompilation: yes
+# Packaged: 2019-05-31 12:25:38 UTC; doulaye
+# Repository: CRAN
+# Date/Publication: 2019-05-31 12:40:07 UTC
